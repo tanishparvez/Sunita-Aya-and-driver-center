@@ -74,7 +74,7 @@
         }
 
         .logo img {
-            height: 70px;
+            height: 90px;
             width: auto;
             object-fit: contain;
         }
@@ -322,20 +322,6 @@
             margin-top: 0.4rem;
         }
 
-        .status-message {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            display: none;
-        }
-
-        .status-success {
-            color: #1b5e20;
-        }
-
-        .status-error {
-            color: #b71c1c;
-        }
-
         .map-section {
             background: var(--light-bg);
             padding: 3rem 0;
@@ -456,7 +442,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 80px;
+                top: 100px;
                 flex-direction: column;
                 background: var(--white);
                 width: 100%;
@@ -465,7 +451,7 @@
                 box-shadow: var(--shadow-lg);
                 padding: 1rem 0;
                 gap: 0;
-                max-height: calc(100vh - 80px);
+                max-height: calc(100vh - 100px);
                 overflow-y: auto;
             }
 
@@ -522,7 +508,7 @@
             }
 
             .logo img {
-                height: 55px;
+                height: 70px;
             }
 
             .page-header h1 {
@@ -544,7 +530,7 @@
 
         @media (max-width: 480px) {
             .logo img {
-                height: 50px;
+                height: 60px;
             }
 
             .page-header h1 {
@@ -624,26 +610,26 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" action="https://formspree.io/f/mjknrked" method="POST">
                     <h2>Send Us a Message</h2>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
-                            <input type="text" id="name" placeholder="Enter your full name" required>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" placeholder="10-digit mobile number" required>
+                            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" placeholder="your@email.com" required>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Service Interested In</label>
-                            <select id="service">
+                            <select id="service" name="service">
                                 <option value="">Select a service</option>
                                 <option value="aya">Aya Services</option>
                                 <option value="driver">Driver Services</option>
@@ -654,11 +640,14 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Your Message *</label>
-                        <textarea id="message" placeholder="Describe your requirement, preferred time, location, etc." required></textarea>
+                        <textarea id="message" name="message" placeholder="Describe your requirement, preferred time, location, etc." required></textarea>
                     </div>
+                    
+                    <!-- Hidden Formspree fields -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Sunita Aya and Driver Center">
+                    
                     <button type="submit" class="btn btn-primary">Submit Request</button>
                     <p class="form-note">By submitting this form, you agree to be contacted by phone or email regarding your enquiry.</p>
-                    <div id="statusMessage" class="status-message"></div>
                 </form>
             </div>
         </div>
@@ -767,54 +756,6 @@
             if (!dropdown.contains(e.target) && window.innerWidth <= 768) {
                 dropdown.classList.remove('active');
             }
-        });
-
-        const contactForm = document.getElementById('contactForm');
-        const statusMessage = document.getElementById('statusMessage');
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        function isValidPhone(phone) {
-            const digits = phone.replace(/[\s-]/g, '');
-            return /^[0-9]{10}$/.test(digits);
-        }
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !phone || !email || !message) {
-                statusMessage.textContent = 'Please fill in all required fields.';
-                statusMessage.className = 'status-message status-error';
-                statusMessage.style.display = 'block';
-                return;
-            }
-
-            if (!isValidPhone(phone)) {
-                statusMessage.textContent = 'Please enter a valid 10-digit phone number.';
-                statusMessage.className = 'status-message status-error';
-                statusMessage.style.display = 'block';
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                statusMessage.textContent = 'Please enter a valid email address.';
-                statusMessage.className = 'status-message status-error';
-                statusMessage.style.display = 'block';
-                return;
-            }
-
-            statusMessage.textContent = 'Thank you! Your message has been submitted. Our team will contact you shortly.';
-            statusMessage.className = 'status-message status-success';
-            statusMessage.style.display = 'block';
-
-            contactForm.reset();
         });
     </script>
 </body>
