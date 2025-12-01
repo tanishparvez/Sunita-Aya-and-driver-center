@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Services - Sunita Aya and Driver Center </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF8C42;
+            --secondary-color: #1A237E;
+            --accent-color: #FFD700;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            padding: 1rem 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        /* Desktop Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            list-style: none;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            border-radius: 8px;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.7rem 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+
+        .service-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .service-details {
+            padding: 4rem 0;
+        }
+
+        .details-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .details-image img {
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .details-text h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature i {
+            color: var(--primary-color);
+        }
+
+        .services-offered {
+            background: var(--light-bg);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .services-offered h2 {
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .offered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .offered-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .offered-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .offered-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .offered-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .pricing-subtitle {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--light-bg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features i {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #E67A35;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 140, 66, 0.4);
+        }
+
+        .booking-process {
+            background: var(--light-bg);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .booking-process h2 {
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-light:hover {
+            background: var(--light-bg);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 68px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: left;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+                padding: 1rem 0;
+                gap: 0;
+                max-height: calc(100vh - 68px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                padding: 0;
+                width: 100%;
+            }
+
+            .nav-menu > li > a,
+            .dropdown-toggle {
+                display: block;
+                padding: 1rem 1.5rem;
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                position: relative;
+            }
+
+            .dropdown-toggle i {
+                position: absolute;
+                right: 1.5rem;
+                transition: transform 0.3s;
+            }
+
+            .dropdown.active .dropdown-toggle i {
+                transform: rotate(180deg);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                box-shadow: none;
+                display: none;
+                background: var(--light-bg);
+                padding: 0.5rem 0;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 0.7rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .service-header h1 {
+                font-size: 2rem;
+            }
+
+            .details-content {
+                grid-template-columns: 1fr;
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-section h2,
+            .services-offered h2,
+            .booking-process h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h2>Care<span>Connect</span></h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="aya-services.html">Aya Services</a></li>
+                            <li><a href="driver-services.html" class="active">Driver Services</a></li>
+                            <li><a href="home-care.html">Home Care</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="service-header">
+        <div class="container">
+            <h1>Professional Driver Services</h1>
+            <p>Experienced, courteous drivers for all your transportation needs</p>
+        </div>
+    </section>
+
+    <section class="service-details">
+        <div class="container">
+            <div class="details-content">
+                <div class="details-image">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop" alt="Driver Services">
+                </div>
+                <div class="details-text">
+                    <h2>Reliable Transportation You Can Trust</h2>
+                    <p>Our professional driver services provide experienced, licensed drivers for personal, corporate, and special occasion transportation. Whether you need a daily commute driver, special event chauffeur, or long-distance travel companion, we have you covered.</p>
+                    <div class="service-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Licensed & experienced drivers</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Background verified</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>GPS tracked vehicles</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Flexible scheduling</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Safe & courteous service</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>All vehicle types</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-offered">
+        <div class="container">
+            <h2>Driver Services We Offer</h2>
+            <div class="offered-grid">
+                <div class="offered-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Corporate Drivers</h3>
+                    <p>Professional drivers for business executives and corporate needs</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Personal Chauffeur</h3>
+                    <p>Dedicated personal driver for daily commute and errands</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>Event Drivers</h3>
+                    <p>Special occasion drivers for weddings, parties, and events</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-road"></i>
+                    <h3>Long Distance Travel</h3>
+                    <p>Reliable drivers for outstation and long-distance trips</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-moon"></i>
+                    <h3>Night Shift Drivers</h3>
+                    <p>Late-night transportation services with safety priority</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>Shopping & Errands</h3>
+                    <p>Driver assistance for shopping trips and daily tasks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Flexible Pricing Plans</h2>
+            <p class="pricing-subtitle">Choose a plan that fits your needs and budget</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Hourly</h3>
+                    <div class="price">₹200<span>/hour</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Minimum 4 hours</li>
+                        <li><i class="fas fa-check"></i> Within city limits</li>
+                        <li><i class="fas fa-check"></i> Fuel extra</li>
+                        <li><i class="fas fa-check"></i> Flexible scheduling</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Full Day (12 Hours)</h3>
+                    <div class="price">₹1,800<span>/day</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 12-hour service</li>
+                        <li><i class="fas fa-check"></i> 120 km included</li>
+                        <li><i class="fas fa-check"></i> Extra km: ₹10/km</li>
+                        <li><i class="fas fa-check"></i> Professional driver</li>
+                        <li><i class="fas fa-check"></i> GPS tracking</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Outstation</h3>
+                    <div class="price">₹12<span>/km</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Minimum 250 km</li>
+                        <li><i class="fas fa-check"></i> Driver allowance ₹400/day</li>
+                        <li><i class="fas fa-check"></i> Night charges extra</li>
+                        <li><i class="fas fa-check"></i> Toll & parking extra</li>
+                        <li><i class="fas fa-check"></i> Experienced drivers</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Monthly Package</h3>
+                    <div class="price">₹35,000<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Dedicated driver</li>
+                        <li><i class="fas fa-check"></i> 10 hours daily</li>
+                        <li><i class="fas fa-check"></i> 26 days service</li>
+                        <li><i class="fas fa-check"></i> Best value pricing</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-process">
+        <div class="container">
+            <h2>Simple Booking Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Call or book online with your requirements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Driver Assignment</h3>
+                    <p>We assign a qualified driver based on your needs</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Verification</h3>
+                    <p>Receive driver details and vehicle information</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Start Service</h3>
+                    <p>Your driver arrives on time, ready to serve</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need a Driver Today?</h2>
+                <p>Book professional driver services with just one call</p>
+                <a href="contact.html" class="btn btn-light">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sunita Aya and Driver Center </h3>
+                    <p>Professional healthcare and transportation services dedicated to improving lives through compassionate care and reliable service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="aya-services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="aya-services.html">Aya Services</a></li>
+                        <li><a href="driver-services.html">Driver Services</a></li>
+                        <li><a href="home-care.html">Home Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +91 82820 77002</li>
+                        <li><i class="fas fa-envelope"></i> info@Sunita Aya and Driver Center .com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Available</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sunita Aya and Driver Center . All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            if (!navMenu.classList.contains('active')) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Toggle dropdown
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close menu when clicking regular links
+        document.querySelectorAll('.nav-menu > li > a:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                dropdown.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking dropdown links
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                dropdown.classList.remove('active');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && window.innerWidth <= 768) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
