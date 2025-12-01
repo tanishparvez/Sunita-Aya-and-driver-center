@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Sunita Aya and Driver Center </title>
+    <title>Contact Us - Sunita Aya and Driver Center</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -59,7 +59,7 @@
         }
 
         .navbar {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .navbar .container {
@@ -68,13 +68,15 @@
             align-items: center;
         }
 
-        .logo h2 {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -454,7 +456,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 68px;
+                top: 80px;
                 flex-direction: column;
                 background: var(--white);
                 width: 100%;
@@ -463,7 +465,7 @@
                 box-shadow: var(--shadow-lg);
                 padding: 1rem 0;
                 gap: 0;
-                max-height: calc(100vh - 68px);
+                max-height: calc(100vh - 80px);
                 overflow-y: auto;
             }
 
@@ -519,6 +521,10 @@
                 font-size: 0.95rem;
             }
 
+            .logo img {
+                height: 55px;
+            }
+
             .page-header h1 {
                 font-size: 2.2rem;
             }
@@ -537,8 +543,8 @@
         }
 
         @media (max-width: 480px) {
-            .logo h2 {
-                font-size: 1.5rem;
+            .logo img {
+                height: 50px;
             }
 
             .page-header h1 {
@@ -552,7 +558,9 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2>Care<span>Connect</span></h2>
+                    <a href="index.html">
+                        <img src="logo.png" alt="Sunita Aya and Driver Center">
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
@@ -597,14 +605,14 @@
                     <div class="contact-info-card">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><strong>General:</strong> info@Sunita Aya and Driver Center .com</p>
-                        <p><strong>Support:</strong> support@Sunita Aya and Driver Center .com</p>
+                        <p><strong>General:</strong> info@sunitacenter.com</p>
+                        <p><strong>Support:</strong> support@sunitacenter.com</p>
                         <p>Response time is usually within 2–4 business hours.</p>
                     </div>
                     <div class="contact-info-card">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Visit Us</h3>
-                        <p>Sunita Aya and Driver Center  Health & Transport Services</p>
+                        <p>Sunita Aya and Driver Center</p>
                         <p>123 Healthcare Plaza, Andheri (E)</p>
                         <p>Mumbai, Maharashtra 400059</p>
                     </div>
@@ -673,7 +681,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sunita Aya and Driver Center </h3>
+                    <h3>Sunita Aya and Driver Center</h3>
                     <p>Professional healthcare and transportation services dedicated to improving lives through compassionate care and reliable service.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -703,14 +711,14 @@
                     <h4>Contact Info</h4>
                     <ul class="contact-info-list">
                         <li><i class="fas fa-phone"></i> +91 82820 77002</li>
-                        <li><i class="fas fa-envelope"></i> info@Sunita Aya and Driver Center .com</li>
+                        <li><i class="fas fa-envelope"></i> info@sunitacenter.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</li>
                         <li><i class="fas fa-clock"></i> 24/7 Available</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sunita Aya and Driver Center . All rights reserved.</p>
+                <p>&copy; 2025 Sunita Aya and Driver Center. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -761,7 +769,6 @@
             }
         });
 
-        // Form validation
         const contactForm = document.getElementById('contactForm');
         const statusMessage = document.getElementById('statusMessage');
 

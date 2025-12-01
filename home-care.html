@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Care Services - Sunita Aya and Driver Center </title>
+    <title>Home Care Services - Sunita Aya and Driver Center</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -59,7 +59,7 @@
         }
 
         .navbar {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .navbar .container {
@@ -68,13 +68,15 @@
             align-items: center;
         }
 
-        .logo h2 {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -556,7 +558,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 68px;
+                top: 80px;
                 flex-direction: column;
                 background: var(--white);
                 width: 100%;
@@ -565,7 +567,7 @@
                 box-shadow: var(--shadow-lg);
                 padding: 1rem 0;
                 gap: 0;
-                max-height: calc(100vh - 68px);
+                max-height: calc(100vh - 80px);
                 overflow-y: auto;
             }
 
@@ -621,6 +623,10 @@
                 font-size: 0.95rem;
             }
 
+            .logo img {
+                height: 55px;
+            }
+
             .service-header h1 {
                 font-size: 2rem;
             }
@@ -647,8 +653,8 @@
         }
 
         @media (max-width: 480px) {
-            .logo h2 {
-                font-size: 1.5rem;
+            .logo img {
+                height: 50px;
             }
 
             .service-header h1 {
@@ -668,7 +674,9 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2>Care<span>Connect</span></h2>
+                    <a href="index.html">
+                        <img src="logo.png" alt="Sunita Aya and Driver Center">
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
@@ -695,7 +703,7 @@
     <section class="service-header">
         <div class="container">
             <h1>Comprehensive Home Care Services</h1>
-            <p>Professional healthcare delivered in the comfort of your home</p>
+            <p>Professional in-home healthcare delivered with compassion and expertise</p>
         </div>
     </section>
 
@@ -706,32 +714,32 @@
                     <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&h=600&fit=crop" alt="Home Care Services">
                 </div>
                 <div class="details-text">
-                    <h2>Quality Healthcare at Home</h2>
-                    <p>Our home care services bring professional medical and nursing care to your doorstep. From post-operative care to chronic disease management, we provide comprehensive healthcare services in the familiar comfort of your home.</p>
+                    <h2>Quality Healthcare in the Comfort of Home</h2>
+                    <p>Our home care services bring professional medical care, nursing support, and therapeutic services directly to your home. We understand the importance of familiar surroundings during recovery and ongoing care management.</p>
                     <div class="service-features">
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Registered nurses & therapists</span>
+                            <span>Skilled nursing care</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Medical equipment provided</span>
+                            <span>Physical therapy</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
-                            <span>Doctor consultation available</span>
+                            <span>Medication management</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Wound care</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Chronic disease management</span>
                         </div>
                         <div class="feature">
                             <i class="fas fa-check"></i>
                             <span>24/7 emergency support</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Customized care plans</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check"></i>
-                            <span>Family training & support</span>
                         </div>
                     </div>
                 </div>
@@ -741,37 +749,37 @@
 
     <section class="services-offered">
         <div class="container">
-            <h2>Home Care Services We Provide</h2>
+            <h2>Our Home Care Services</h2>
             <div class="offered-grid">
                 <div class="offered-card">
-                    <i class="fas fa-stethoscope"></i>
-                    <h3>Nursing Care</h3>
-                    <p>Skilled nursing services including wound care, IV therapy, and injections</p>
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Skilled Nursing</h3>
+                    <p>Licensed nurses providing medical care, treatments, and monitoring</p>
                 </div>
                 <div class="offered-card">
-                    <i class="fas fa-procedures"></i>
-                    <h3>Post-Operative Care</h3>
-                    <p>Specialized care for recovery after surgery with monitoring and assistance</p>
-                </div>
-                <div class="offered-card">
-                    <i class="fas fa-lungs"></i>
-                    <h3>Physiotherapy</h3>
-                    <p>In-home physical therapy for mobility, strength, and rehabilitation</p>
+                    <i class="fas fa-walking"></i>
+                    <h3>Physical Therapy</h3>
+                    <p>Rehabilitation and mobility improvement programs at home</p>
                 </div>
                 <div class="offered-card">
                     <i class="fas fa-syringe"></i>
-                    <h3>Diabetes Management</h3>
-                    <p>Blood sugar monitoring, insulin administration, and dietary guidance</p>
+                    <h3>IV Therapy</h3>
+                    <p>Intravenous medication and fluid administration</p>
                 </div>
                 <div class="offered-card">
-                    <i class="fas fa-user-md"></i>
-                    <h3>Doctor Visits</h3>
-                    <p>Home visits by qualified doctors for consultation and treatment</p>
+                    <i class="fas fa-band-aid"></i>
+                    <h3>Wound Care</h3>
+                    <p>Professional wound treatment and dressing changes</p>
                 </div>
                 <div class="offered-card">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h3>Health Monitoring</h3>
-                    <p>Regular vital signs check, health assessment, and progress tracking</p>
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Disease Management</h3>
+                    <p>Ongoing care for diabetes, heart disease, and chronic conditions</p>
+                </div>
+                <div class="offered-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Post-Operative Care</h3>
+                    <p>Recovery support and monitoring after surgery</p>
                 </div>
             </div>
         </div>
@@ -779,30 +787,30 @@
 
     <section class="pricing-section">
         <div class="container">
-            <h2>Flexible Care Packages</h2>
-            <p class="pricing-subtitle">Choose a package that meets your healthcare needs</p>
+            <h2>Flexible Pricing Plans</h2>
+            <p class="pricing-subtitle">Choose a plan that fits your healthcare needs and budget</p>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Single Visit</h3>
-                    <div class="price">₹800<span>/visit</span></div>
+                    <div class="price">₹1,500<span>/visit</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Nursing services</li>
-                        <li><i class="fas fa-check"></i> Basic health check</li>
+                        <li><i class="fas fa-check"></i> 1-hour nursing visit</li>
+                        <li><i class="fas fa-check"></i> Basic assessment</li>
                         <li><i class="fas fa-check"></i> Medication administration</li>
-                        <li><i class="fas fa-check"></i> 1-hour service</li>
+                        <li><i class="fas fa-check"></i> Vital signs monitoring</li>
                     </ul>
                     <a href="contact.html" class="btn btn-primary">Book Now</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <h3>Weekly Package</h3>
-                    <div class="price">₹5,000<span>/week</span></div>
+                    <div class="price">₹8,000<span>/week</span></div>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> 3 visits per week</li>
-                        <li><i class="fas fa-check"></i> Nursing & monitoring</li>
-                        <li><i class="fas fa-check"></i> Health reports</li>
-                        <li><i class="fas fa-check"></i> Doctor consultation (1x)</li>
-                        <li><i class="fas fa-check"></i> Emergency support</li>
+                        <li><i class="fas fa-check"></i> Comprehensive care plan</li>
+                        <li><i class="fas fa-check"></i> All nursing services</li>
+                        <li><i class="fas fa-check"></i> Health monitoring</li>
+                        <li><i class="fas fa-check"></i> Family consultation</li>
                     </ul>
                     <a href="contact.html" class="btn btn-primary">Book Now</a>
                 </div>
@@ -810,23 +818,23 @@
                     <h3>Daily Care</h3>
                     <div class="price">₹3,500<span>/day</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 12-hour nursing care</li>
-                        <li><i class="fas fa-check"></i> Medical equipment</li>
-                        <li><i class="fas fa-check"></i> Complete health monitoring</li>
+                        <li><i class="fas fa-check"></i> Daily nursing visit</li>
+                        <li><i class="fas fa-check"></i> 2-3 hour service</li>
                         <li><i class="fas fa-check"></i> Medication management</li>
-                        <li><i class="fas fa-check"></i> Family updates</li>
+                        <li><i class="fas fa-check"></i> Wound care included</li>
+                        <li><i class="fas fa-check"></i> Progress reporting</li>
                     </ul>
                     <a href="contact.html" class="btn btn-primary">Book Now</a>
                 </div>
                 <div class="pricing-card">
-                    <h3>Monthly Plan</h3>
-                    <div class="price">₹85,000<span>/month</span></div>
+                    <h3>Monthly Care</h3>
+                    <div class="price">₹60,000<span>/month</span></div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> 24/7 nursing support</li>
-                        <li><i class="fas fa-check"></i> Weekly doctor visits</li>
-                        <li><i class="fas fa-check"></i> All medical equipment</li>
-                        <li><i class="fas fa-check"></i> Physiotherapy sessions</li>
-                        <li><i class="fas fa-check"></i> Priority emergency care</li>
+                        <li><i class="fas fa-check"></i> Unlimited visits</li>
+                        <li><i class="fas fa-check"></i> 24/7 phone support</li>
+                        <li><i class="fas fa-check"></i> All services included</li>
+                        <li><i class="fas fa-check"></i> Emergency care</li>
+                        <li><i class="fas fa-check"></i> Best value pricing</li>
                     </ul>
                     <a href="contact.html" class="btn btn-primary">Book Now</a>
                 </div>
@@ -836,27 +844,27 @@
 
     <section class="booking-process">
         <div class="container">
-            <h2>How It Works</h2>
+            <h2>How Home Care Works</h2>
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3>Initial Assessment</h3>
-                    <p>We evaluate medical needs and create a care plan</p>
+                    <h3>Initial Consultation</h3>
+                    <p>Contact us to discuss your healthcare needs and requirements</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h3>Team Assignment</h3>
-                    <p>Qualified healthcare professionals are assigned to you</p>
+                    <h3>Assessment Visit</h3>
+                    <p>Our nurse evaluates the patient and creates a care plan</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>Care Begins</h3>
-                    <p>Our team starts providing care at your home</p>
+                    <p>Scheduled nursing visits and services start at your home</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Ongoing Support</h3>
-                    <p>Regular monitoring, updates, and care adjustments</p>
+                    <p>Regular monitoring, adjustments, and family updates</p>
                 </div>
             </div>
         </div>
@@ -866,8 +874,8 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Need Home Care Services?</h2>
-                <p>Contact us for a free consultation and personalized care plan</p>
-                <a href="contact.html" class="btn btn-light">Get Started Today</a>
+                <p>Contact us today to discuss your home healthcare requirements</p>
+                <a href="contact.html" class="btn btn-light">Contact Us Now</a>
             </div>
         </div>
     </section>
@@ -876,7 +884,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sunita Aya and Driver Center </h3>
+                    <h3>Sunita Aya and Driver Center</h3>
                     <p>Professional healthcare and transportation services dedicated to improving lives through compassionate care and reliable service.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -906,14 +914,14 @@
                     <h4>Contact Info</h4>
                     <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> +91 82820 77002</li>
-                        <li><i class="fas fa-envelope"></i> info@Sunita Aya and Driver Center .com</li>
+                        <li><i class="fas fa-envelope"></i> info@sunitacenter.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</li>
                         <li><i class="fas fa-clock"></i> 24/7 Available</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sunita Aya and Driver Center . All rights reserved.</p>
+                <p>&copy; 2025 Sunita Aya and Driver Center. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -928,19 +936,18 @@
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            // Close dropdown when menu closes
             if (!navMenu.classList.contains('active')) {
                 dropdown.classList.remove('active');
             }
         });
 
-        // Toggle dropdown in mobile
+        // Toggle dropdown
         dropdownToggle.addEventListener('click', (e) => {
             e.preventDefault();
             dropdown.classList.toggle('active');
         });
 
-        // Close menu when clicking on regular links
+        // Close menu when clicking regular links
         document.querySelectorAll('.nav-menu > li > a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');

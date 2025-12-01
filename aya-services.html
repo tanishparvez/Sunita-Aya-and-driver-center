@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aya Services - Sunita Aya and Driver Center </title>
+    <title>Aya Services - Sunita Aya and Driver Center</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -49,6 +49,7 @@
             color: inherit;
         }
 
+        /* Header & Navigation */
         header {
             background: var(--white);
             box-shadow: var(--shadow);
@@ -58,7 +59,7 @@
         }
 
         .navbar {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .navbar .container {
@@ -67,13 +68,15 @@
             align-items: center;
         }
 
-        .logo h2 {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -95,6 +98,7 @@
             color: var(--primary-color);
         }
 
+        /* Desktop Dropdown */
         .dropdown {
             position: relative;
         }
@@ -103,6 +107,10 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 0;
         }
 
         .dropdown-menu {
@@ -119,6 +127,7 @@
             transform: translateY(-10px);
             transition: all 0.3s;
             border-radius: 8px;
+            z-index: 100;
         }
 
         .dropdown:hover .dropdown-menu {
@@ -142,6 +151,7 @@
             color: var(--primary-color);
         }
 
+        /* Hamburger Menu */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -154,6 +164,7 @@
             height: 3px;
             background: var(--secondary-color);
             transition: all 0.3s;
+            border-radius: 2px;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -538,6 +549,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* Mobile Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -546,15 +558,17 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 80px;
                 flex-direction: column;
                 background: var(--white);
                 width: 100%;
-                text-align: center;
-                transition: 0.3s;
+                text-align: left;
+                transition: left 0.3s ease;
                 box-shadow: var(--shadow-lg);
-                padding: 2rem 0;
+                padding: 1rem 0;
                 gap: 0;
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
             }
 
             .nav-menu.active {
@@ -562,8 +576,29 @@
             }
 
             .nav-menu li {
-                padding: 1rem 0;
+                padding: 0;
                 width: 100%;
+            }
+
+            .nav-menu > li > a,
+            .dropdown-toggle {
+                display: block;
+                padding: 1rem 1.5rem;
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                position: relative;
+            }
+
+            .dropdown-toggle i {
+                position: absolute;
+                right: 1.5rem;
+                transition: transform 0.3s;
+            }
+
+            .dropdown.active .dropdown-toggle i {
+                transform: rotate(180deg);
             }
 
             .dropdown-menu {
@@ -573,10 +608,23 @@
                 transform: translateY(0);
                 box-shadow: none;
                 display: none;
+                background: var(--light-bg);
+                padding: 0.5rem 0;
+                margin: 0;
+                border-radius: 0;
             }
 
             .dropdown.active .dropdown-menu {
                 display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 0.7rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .logo img {
+                height: 55px;
             }
 
             .service-header h1 {
@@ -603,6 +651,22 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 50px;
+            }
+
+            .service-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-section h2,
+            .services-offered h2,
+            .booking-process h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -610,20 +674,19 @@
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h2>Care<span>Connect</span></h2>
+                    <a href="index.html">
+                        <img src="logo.png" alt="Sunita Aya and Driver Center">
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                        <span class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></span>
                         <ul class="dropdown-menu">
                             <li><a href="aya-services.html" class="active">Aya Services</a></li>
                             <li><a href="driver-services.html">Driver Services</a></li>
                             <li><a href="home-care.html">Home Care</a></li>
-                            <li><a href="elderly-care.html">Elderly Care</a></li>
-                            <li><a href="medical-transport.html">Medical Transport</a></li>
-                            <li><a href="airport-transfer.html">Airport Transfer</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
@@ -821,7 +884,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sunita Aya and Driver Center </h3>
+                    <h3>Sunita Aya and Driver Center</h3>
                     <p>Professional healthcare and transportation services dedicated to improving lives through compassionate care and reliable service.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -845,21 +908,20 @@
                         <li><a href="aya-services.html">Aya Services</a></li>
                         <li><a href="driver-services.html">Driver Services</a></li>
                         <li><a href="home-care.html">Home Care</a></li>
-                        <li><a href="elderly-care.html">Elderly Care</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <ul class="contact-info">
                         <li><i class="fas fa-phone"></i> +91 82820 77002</li>
-                        <li><i class="fas fa-envelope"></i> info@Sunita Aya and Driver Center .com</li>
+                        <li><i class="fas fa-envelope"></i> info@sunitacenter.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</li>
                         <li><i class="fas fa-clock"></i> 24/7 Available</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sunita Aya and Driver Center . All rights reserved.</p>
+                <p>&copy; 2025 Sunita Aya and Driver Center. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -867,27 +929,47 @@
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
-        const dropdowns = document.querySelectorAll('.dropdown');
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
 
+        // Toggle mobile menu
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            if (!navMenu.classList.contains('active')) {
+                dropdown.classList.remove('active');
+            }
         });
 
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        // Toggle dropdown
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close menu when clicking regular links
+        document.querySelectorAll('.nav-menu > li > a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                dropdown.classList.remove('active');
             });
         });
 
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
+        // Close menu when clicking dropdown links
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                dropdown.classList.remove('active');
             });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && window.innerWidth <= 768) {
+                dropdown.classList.remove('active');
+            }
         });
     </script>
 </body>
